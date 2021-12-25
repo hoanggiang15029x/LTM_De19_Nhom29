@@ -416,8 +416,32 @@ public class Client extends javax.swing.JFrame {
                     break;
                 }
             }
+
+            boolean checkText = true;
+            int dem = 0;
+            for (int i = 0; i < txt_text.getText().trim().length(); i++) {
+                if (txt_text.getText().trim().charAt(i) == 46
+                        || txt_text.getText().trim().charAt(i) == 44
+                        || txt_text.getText().trim().charAt(i) == 32) {
+                    dem++;
+                    continue;
+                }
+                if (65 <= txt_text.getText().trim().charAt(i)
+                        && txt_text.getText().trim().charAt(i) <= 90
+                        || 97 <= txt_text.getText().trim().charAt(i)
+                        && txt_text.getText().trim().charAt(i) <= 122) {
+                    checkText = true;
+                } else {
+                    checkText = false;
+                    break;
+                }
+            }
             if (!checkKey) {
                 JOptionPane.showMessageDialog(this, "Key không được chứa kí tự đặc biệt hoặc số!");
+            } else if (!checkText) {
+                JOptionPane.showMessageDialog(this, "Văn bản không được chứa kí tự đặc biệt hoặc dấu!");
+            }else if (dem == txt_text.getText().trim().length() && radio_writeFile.isSelected()) {
+                JOptionPane.showMessageDialog(this, "Văn bản không được chứa chỉ toàn dấu chấm hoặc dấu phẩy!");
             } else {
                 lb_check.setVisible(false);
                 lb_fileName.setVisible(false);
