@@ -422,6 +422,7 @@ public class Client extends javax.swing.JFrame {
             for (int i = 0; i < txt_text.getText().trim().length(); i++) {
                 if (txt_text.getText().trim().charAt(i) == 46
                         || txt_text.getText().trim().charAt(i) == 44
+                        || txt_text.getText().trim().charAt(i) == 32
                         || txt_text.getText().trim().charAt(i) == 32) {
                     dem++;
                     continue;
@@ -439,8 +440,8 @@ public class Client extends javax.swing.JFrame {
             if (!checkKey) {
                 JOptionPane.showMessageDialog(this, "Key không được chứa kí tự đặc biệt hoặc số!");
             } else if (!checkText) {
-                JOptionPane.showMessageDialog(this, "Văn bản không được chứa kí tự đặc biệt hoặc dấu!");
-            }else if (dem == txt_text.getText().trim().length() && radio_writeFile.isSelected()) {
+                JOptionPane.showMessageDialog(this, "Văn bản không được xuống hàng, có chứa kí tự đặc biệt hoặc có dấu!");
+            } else if (dem == txt_text.getText().trim().length() && radio_writeFile.isSelected()) {
                 JOptionPane.showMessageDialog(this, "Văn bản không được chứa chỉ toàn dấu chấm hoặc dấu phẩy!");
             } else {
                 lb_check.setVisible(false);
