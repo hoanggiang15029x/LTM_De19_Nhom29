@@ -193,8 +193,8 @@ public class LTM_GiuaKy_Server {
                 server.send(out);
             }
 
-            if (checkWriteFile) {
-                String readFile = readFile(filePath);
+            if (checkWriteFile) { //dọc file
+                String readFile = readFile(filePath); 
                 System.out.println("readfile:" + readFile + "    filePath: " + filePath);
                 String decryptText = decrypt(readFile, key);
                 //gửi kết quả sau khi đọc lại file được giải mã 
